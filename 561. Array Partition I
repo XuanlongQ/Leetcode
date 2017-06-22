@@ -1,0 +1,25 @@
+# Soluation 1:
+class Solution(object):
+    def arrayPairSum(self, nums):
+        #"""
+        :type nums: List[int]
+        :rtype: int
+        #"""
+        nums.sort()
+        i = 0
+        sum = 0
+        while i < len(nums):
+            sum += nums[i]
+            i += 2
+        return sum
+        
+
+# Soluation 2:
+class Solution(object):
+    def arrayPairSum(self, nums):
+        #"""
+        :type nums: List[int]
+        :rtype: int
+        #"""
+        nums.sort()
+        return sum(nums[::2])
