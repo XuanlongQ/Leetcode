@@ -1,0 +1,34 @@
+# method 1
+class Solution(object):
+    def findComplement(self, num):
+        bn = bin(num)[2:]
+        print bn
+        oriList = []
+        rList = list(bn)
+        for i in rList:
+            if i == "0":
+                oriList.append('1')
+            else:
+                oriList.append('0')
+        r = ''.join(oriList)
+        return int(r, 2)
+
+P = Solution()
+print P.findComplement(5)
+
+
+# method 2
+def findComplement(num):
+    value = 1
+    if  num == 1:
+        return 0
+    else:
+        while value <= num:
+
+            value <<= 1
+            print value
+        value_last = value - 1
+        print value_last
+        return value_last ^ num
+
+print findComplement(5)
