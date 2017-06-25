@@ -1,0 +1,61 @@
+method 1:
+class Solution(object):
+  def matrixReshape(self, nums, r, c):
+      if len(nums)*len(nums[0]) != r*c:
+          return nums
+      result = [[0 for column in range(c)] for row in range(r)]
+
+      temp_row = 0
+      temp_col = 0
+      for i in nums:
+          for j in i :
+              result[temp_row][temp_col] = j
+              temp_col += 1
+              if temp_col == c:
+                  temp_row +=1
+                  temp_col = 0
+      return  result
+      
+P = Solution()
+nums = [[1,2],[3,4],[5,6],[1,2],[3,4],[5,6]]
+print P.matrixReshape(nums,3,4)
+
+
+method 2:
+class Solution(object):
+  def matrixReshape(self, nums, r, c):
+    """
+    :type nums: List[List[int]]
+    :type r: int
+    :type c: int
+    :rtype: List[List[int]]
+    """
+    expect_total_length = r * c
+    if len(nums) * len(nums[0]) != expect_total_length:
+      return nums
+    result = [[0 for column in range(c)] for row in range(r)]
+    for i in range(expect_total_length):
+      result[i / c][i % c] = nums[i / len(nums[0])][i % len(nums[0])]
+    return result
+
+P = Solution()
+nums = [[1,2],[3,4],[5,6],[1,2],[3,4],[5,6]]
+print P.matrixReshape(nums,3,4)
+
+method3:
+import numpy
+class Solution(object):
+  def matrixReshape(self, nums, r, c):
+    """
+    :type nums: List[List[int]]
+    :type r: int
+    :type c: int
+    :rtype: List[List[int]]
+    """
+    if len(nums) * len(nums[0]) != r * c:
+      return nums
+    return numpy.reshape(nums, (r, c)).tolist()
+
+P = Solution()
+nums = [[1,2],[3,4],[5,6],[1,2],[3,4],[5,6]]
+print P.matrixReshape(nums,3,4)
