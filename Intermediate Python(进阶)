@@ -1,0 +1,61 @@
+#just because i dont want create a new floder,so i put the test code into this flod.
+# because this blog is the last part of the section,so just ignore this file.
+
+
+# def hi():
+#     return "hi xaunlong"
+#
+# def dosomethingbeforehi(fun):
+#     print "now is before hi()"
+#     print (fun())
+#
+# dosomethingbeforehi(hi)
+
+# def hi(name = "xaunlong"):
+#     return "hi "+ name
+#
+# greet = hi
+# print greet()
+
+# def hi(name = "xuanlong"):
+#     print "now inside the in() function"
+#
+#     def greet():
+#         return "now inside the greet() function"
+#     def welcome():
+#         return "now inside the welcome() function"
+#
+#     if name == "xuanlong":
+#         return greet
+#     else:
+#         return welcome
+#
+# a = hi()
+# print a
+#
+# def hi():
+#     return "hi xuanlong"
+#
+# def dosomethingbeforehi(func):
+#     print "do somethings before excuting hi()"
+#     print (func())
+#
+# dosomethingbeforehi(hi)
+
+
+def a_new_decorator(a_func):
+    def wrapTheFunction():
+        print("I am doing some boring work before executing a_func()")
+
+        a_func()
+
+        print("I am doing some boring work after executing a_func()")
+
+    return wrapTheFunction
+
+def a_function_requiring_decoration():
+    print("I am the function which needs some decoration to remove my foul smell")
+
+
+a_function_requiring_decoration = a_new_decorator(a_function_requiring_decoration)
+a_function_requiring_decoration()
