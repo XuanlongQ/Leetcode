@@ -1,0 +1,41 @@
+#method 1
+class Solution(object):
+    def singleNumber(self, nums):
+    	result = nums[0]
+    	for i in nums[1:]:
+    		result = result ^ i
+    	return result
+      
+P = Solution()
+nums = [2,1,1,2,3,3,4,5,5]
+print (P.singleNumber(nums))
+
+
+#method 2
+class Solution(object):
+    def singleNumber(self, nums):
+    	result = 0
+    	for i in nums:
+    		result = result ^ i
+    	return result
+      
+P = Solution()
+nums = [2,1,1,2,3,3,4,5,5]
+print (P.singleNumber(nums))
+
+
+#method 3
+class Solution(object):
+    def singleNumber(self, nums):
+    	nums.sort()
+        print nums
+
+    	for i in range(0,len(nums)):
+    		if nums[i]-nums[i+1]==0:
+    			i+=2
+    		# else:
+    			return nums[i+2]
+          
+P = Solution()
+nums = [2,1,1,2,3,3,4,5,5]
+print (P.singleNumber(nums))
