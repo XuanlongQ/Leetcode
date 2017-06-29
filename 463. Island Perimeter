@@ -1,0 +1,26 @@
+#method 1 暴力膜
+class Solution(object):
+    def islandPerimeter(self, grid):
+    	n = len(grid)
+    	m = len(grid[0])
+    	paremeters = 0
+    	print (len(grid))
+    	print (len(grid[0]))
+    	for i in range(0,len(grid)):
+    		for j in range(0,len(grid[0])):
+    			if grid[i][j]==1:
+    				if i==0 or grid[i-1][j ==0]:
+    					paremeters+=1
+    				if i==n-1 or grid[i+1][j]==0:
+    					paremeters+=1
+    				if j==0 or grid[i][j-1]==0:
+    					paremeters+=1
+    				if j == m-1 or grid[i][j+1] == 0:
+    					paremeters+=1
+    	return paremeters
+
+    	
+
+P = Solution()
+grid = [[0,1,0,0],[1,1,1,0],[0,1,0,0],[1,1,0,0]]
+print (P.islandPerimeter(grid))
