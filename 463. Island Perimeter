@@ -9,7 +9,7 @@ class Solution(object):
     	for i in range(0,len(grid)):
     		for j in range(0,len(grid[0])):
     			if grid[i][j]==1:
-    				if i==0 or grid[i-1][j ==0]:
+    				if i==0 or grid[i-1][j] ==0:
     					paremeters+=1
     				if i==n-1 or grid[i+1][j]==0:
     					paremeters+=1
