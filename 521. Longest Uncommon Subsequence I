@@ -1,0 +1,17 @@
+# method 1
+class Solution(object):
+    def findLUSlength(self, a, b):
+    	if len(a) != len(b):
+    		if len(a) > len(b):
+    			return len (a)
+    		else:
+    			return len (b)
+    	if len(a) == len (b):
+    		if a == b:
+    			return -1
+    		else:
+    			return len (a)
+
+P = Solution()
+
+print (P.findLUSlength("aba", "abc"))
