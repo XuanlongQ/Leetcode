@@ -1,0 +1,51 @@
+#method 1 
+class Solution(object):
+    def detectCapitalUse(self, word):
+        """
+        :type word: str
+        :rtype: bool
+        """
+        if word.isupper() or word.islower() or len(word) <= 1: 
+        	return True
+        if word[0].isupper() and word[1:].islower(): 
+        	return True
+        else:
+        	return False
+
+P = Solution()
+Input = "ffffffffffffffffffffffF"
+print (P.detectCapitalUse(Input))
+
+#method2 
+
+class Solution(object):
+    def detectCapitalUse(self, word):
+      cnt = 0
+    	for i in range(0,len(word)):
+    		if ord(word[i]) >= 65 and ord(word[i]) <= 90:
+    			cnt+=1
+    	return (cnt==0) or (cnt == len(word)) or (cnt == 1 and ord(word[0]) >= 65 and ord(word[0]) <= 90)
+      
+P = Solution()
+Input = "ffffffffffffffffffffffF"
+print (P.detectCapitalUse(Input))
+      
+#method3
+class Solution(object):
+    def detectCapitalUse(self, word):
+    	if ord(word[0]) <=90 and ord(word[0]) >=65: #第一个字母为大写
+    		for i in word[1:]:
+    			if ord(i) <= 122 and ord(i) >=97:
+    				return True
+    			if ord(i) <= 90 and ord(i) >= 65:
+    				return True
+    	elif ord(word[0]) >= 97 and ord(word[0]) <= 122:
+    		for i in word[1:]:
+    			if ord(i) <= 122 and ord(i) >=97:
+    				return True
+    	else:
+    		return False
+ 
+P = Solution()
+Input = "ffffffffffffffffffffffF"
+print (P.detectCapitalUse(Input))
