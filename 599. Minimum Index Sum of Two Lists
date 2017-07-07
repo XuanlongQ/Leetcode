@@ -1,0 +1,28 @@
+# method 1(AC)
+class Solution(object):
+    def intersection(self, nums1, nums2):
+
+        val = set(nums1)&set(nums2)
+
+        return list(val)
+ 
+p = Solution()
+
+nums1 = [1, 2, 2, 1]
+nums2 = [2, 2]
+print p.intersection(nums1,nums2)
+
+# method 2 
+class Solution(object):
+    def intersection(self, nums1, nums2):
+        result = []
+        for num1 in nums1:
+            for num2 in nums2:
+                if num1 == num2:
+                    result.append(num1)
+                    return result
+p = Solution()
+
+nums1 = [1, 2, 2, 1]
+nums2 = [2, 2]
+print p.intersection(nums1,nums2)
