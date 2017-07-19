@@ -1,0 +1,14 @@
+class Solution(object):
+    def maxDepth(self, root):
+        """
+        :type root: TreeNode
+        :rtype: int
+        """
+        if root == None:
+            return 0
+        leftdep = self.maxDepth(root.left)
+        rightdep = self.maxDepth(root.right)
+        if leftdep >= rightdep:
+            return leftdep + 1
+        else:
+            return rightdep + 1
