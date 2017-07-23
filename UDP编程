@@ -1,0 +1,26 @@
+# Server端
+import socket
+# SOCK_DGRAM指定这个Socket的类型是UDP了已经。
+s = socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
+
+# bind the port
+
+s.bind(('127.0.0.1',9999))
+print 'Bind UDP on 9999...'
+while True:
+    data,addr = s.recvfrom(1024)
+    print 'Received from %s:%s.'% addr
+    s.sendto('Hello,%s!'%data,addr)
+
+# Test Server端
+import socket
+
+s = socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
+
+for data in ['Michael','Tracy','Sarach']:
+    # send data
+    s.sendto(data,('127.0.0.1',9999))
+    # receive data
+    print s.recv(1024)
+
+s.close()
