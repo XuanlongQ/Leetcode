@@ -1,0 +1,15 @@
+＃method 1
+class Solution(object):
+    def titleToNumber(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        sum = 0
+        for c in s:
+            sum = sum*26 + ord(c) - 64 # 64 = ord('A') - 1
+            print sum
+        return sum
+
+P = Solution()
+P.titleToNumber('AA')
