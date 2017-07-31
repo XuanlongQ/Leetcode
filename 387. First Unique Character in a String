@@ -1,0 +1,40 @@
+# method 1
+class Solution(object):
+    def firstUniqChar(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        letters = {}
+        for c in s:
+            if c in letters:
+                letters[c] = letters[c] + 1
+            else:
+                letters[c] = 1
+        for i in xrange(len(s)):
+            if letters[s[i]] == 1:
+                return i
+        return -1
+        
+P = Solution()
+s = "loveleetcode"
+P.firstUniqChar(s)
+
+＃method 2
+class Solution(object):
+    def firstUniqChar(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        letters = 'abcdefghijklmnopqrstuvwxyz'
+        res = []
+        for c in letters:
+            if s.count(c) == 1:
+                d = s.find(c)
+                res.append(d)
+        return min(res)
+        
+P = Solution()
+s = "loveleetcode"
+P.firstUniqChar(s)
