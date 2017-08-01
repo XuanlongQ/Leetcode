@@ -1,0 +1,60 @@
+# method 1
+class Solution(object):
+    def containsDuplicate(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: bool
+        """
+        nums.sort()
+        if nums == [] or len(nums)==1:
+            return False
+        for i in range(0,len(nums)-1):
+            # print i
+            if nums[i] == nums[i+1]:
+                return True
+        return False
+
+list1 = [2,14,18,22,22]
+P = Solution()
+P.containsDuplicate(list1)    
+
+# method 2
+class Solution(object):
+    def containsDuplicate(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: bool
+        """
+        return len(nums) != len(set(nums))
+        
+list1 = [2,14,18,22,22]
+P = Solution()
+P.containsDuplicate(list1)
+
+# method 3
+class Solution(object):
+    def containsDuplicate(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: bool
+        """
+        left = 0
+        right = len(nums) - 1
+        if nums == [] and len(nums) - 1 == 0:
+            return False
+
+        while left < right and nums != []:
+            if nums[left] == nums[right]:
+                print True
+                return True
+            elif nums[left] > nums[right]:
+                left += 1
+            else:
+                right -= 1
+            return False
+
+
+
+list1 = [2,14,18,22,22]
+P = Solution()
+P.containsDuplicate(list1)
