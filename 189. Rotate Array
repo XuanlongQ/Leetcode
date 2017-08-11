@@ -1,0 +1,38 @@
+＃ method 1
+class Solution(object):
+    def rotate(self, nums, k):
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: void Do not return anything, modify nums in-place instead.
+        """
+        if k > 0 and n > 1:
+            ans = nums1[k:]
+            for i in nums1[0:k]:
+                ans.append(i)
+        # ans.append(new)
+            print ans
+        else:
+            return [1]
+            
+nums = [1,2,3,4,5,6,7]
+P = Solution()
+P.rotate(nums,3)
+
+
+＃ method 2 
+class Solution(object):
+    def rotate(self, nums, k):
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: void Do not return anything, modify nums in-place instead.
+        """
+        n = len(nums)
+        if k > 0 and n > 1:
+            nums[:] = nums[n - k:] + nums[:n - k]
+
+
+nums = [1,2,3,4,5,6,7]
+P = Solution()
+P.rotate(nums,3)
